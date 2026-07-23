@@ -21,7 +21,7 @@ struct TypeCategory {
 
 extension Category {
     
-    static var cstigoryes : [Category] = [
+    static var catigoryes : [Category] = [
         
         Category(title: "Телефоны",
         iconName:  UIImage(systemName: "iphone") ?? UIImage(),
