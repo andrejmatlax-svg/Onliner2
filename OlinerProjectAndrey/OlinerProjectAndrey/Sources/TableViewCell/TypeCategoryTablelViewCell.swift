@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TypeСategoriesViewCell: UITableViewCell {
+class TypeCategoriesViewCell: UITableViewCell {
     
-    static var identifireTypeCategory = "\(TypeСategoriesViewCell.self)"
+    static var identifierTypeCategory = "\(TypeCategoriesViewCell.self)"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

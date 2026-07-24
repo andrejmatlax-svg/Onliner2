@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
 
-    static var identifierCategory = "\(CategoryTableViewCell.self)"
+    static var identifiteCategory = "\(CategoryTableViewCell.self)"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

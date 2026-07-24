@@ -24,7 +24,8 @@ class СategoriesViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
         tableView.dataSource = self
-        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifierCategory)
+        tableView.delegate = self
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifiteCategory)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
         
@@ -71,13 +72,19 @@ extension СategoriesViewController : UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifierCategory, for: indexPath) as? CategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifiteCategory, for: indexPath) as? CategoryTableViewCell
         let item = category[indexPath.row]
         cell?.configureCategegery(categoryes: item)
         return cell ?? UITableViewCell()
     }
-    
-    
 }
 
-
+extension СategoriesViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = category[indexPath.row]
+        let typeСategoriesViewController = TypeСategoriesViewController(typeCategory: item.typeCategory, titleProduct: item.title)
+        navigationController?.pushViewController(typeСategoriesViewController, animated: true)
+    }
+}

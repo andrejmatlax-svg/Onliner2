@@ -38,6 +38,7 @@ class TypeСategoriesViewController : UIViewController {
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.dataSource = self
+        table.register(TypeCategoriesViewCell.self, forCellReuseIdentifier: TypeCategoriesViewCell.identifierTypeCategory)
         table.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right:0)
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
@@ -78,12 +79,13 @@ class TypeСategoriesViewController : UIViewController {
 extension TypeСategoriesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TypeСategoriesViewCell.identifireTypeCategory, for: indexPath) as? TypeСategoriesViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TypeCategoriesViewCell.identifierTypeCategory, for: indexPath)  as? TypeCategoriesViewCell
         let item = typeCategory[indexPath.section][indexPath.row]
         cell?.configureTypeCategory(elements: item)
         return cell ?? UITableViewCell()
     }
-    
+
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             return typeCategory[section].first?.title
         }
